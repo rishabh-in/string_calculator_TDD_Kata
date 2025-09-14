@@ -1,11 +1,13 @@
 export default function add(numbers) {
   if (numbers === "") return 0;
 
-  if (!numbers.includes(',') && !numbers.includes('\n')) {
-    return Number(numbers);
+  let delimiter = /[\n,]/;
+  if (numbers.startsWith("//")) {
+    const parts = numbers.split('\\n');
+    delimiter = new RegExp(`[${parts[0].substring(2)}]`);
+    numbers = parts[1];
   }
 
-  // split by comma or newline
-  const nums = numbers.split(/,|\n/).map(n => Number(n));
+  const nums = numbers.split(delimiter).map(n => parseInt(n));
   return nums.reduce((a, b) => a + b, 0);
 }
