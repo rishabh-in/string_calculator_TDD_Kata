@@ -1,9 +1,10 @@
 {
+  "type": "module",
   "name": "string_calculator",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "stringCalculator.js",
   "scripts": {
-    "test": "jest"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "keywords": [],
   "author": "",
